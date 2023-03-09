@@ -2,7 +2,6 @@ import styles from './ColumnForm.module.scss';
 import { useState } from 'react';
 import Button from '../Button/Button';
 import { useDispatch } from 'react-redux';
-import shortid from 'shortid';
 
 const ColumnForm = (props) => {
 
@@ -14,7 +13,7 @@ const ColumnForm = (props) => {
   const handleSubmit = (e) => {
     // tworzy funkcję, która będzie wywoływana po kliknięciu w przycisk
     e.preventDefault(); // zapobiega przeładowaniu strony po kliknięciu w przycisk
-    dispatch({ type: 'ADD_COLUMN', newColumn: { id: shortid(), title, icon } }); // wywołuje akcję ADD_COLUMN i przekazuje do niej obiekt z tytułem i ikoną
+    dispatch({ type: 'ADD_COLUMN', newColumn: { title, icon } }); // wywołuje akcję ADD_COLUMN i przekazuje do niej obiekt z tytułem i ikoną
     setValue(''); // czyści pole input po dodaniu nowej kolumny
     setIcon('');
   };
