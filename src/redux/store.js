@@ -5,9 +5,9 @@ import initialState from './initialState';
 const reducer = (state, action) => {
   switch (action.type) {
     case 'ADD_COLUMN':
-      return { ...state, columns: [...state.columns, { ...action.newColumn, id: shortid() }] };
+      return { ...state, columns: [...state.columns, action.newColumn]};
     case 'ADD_CARD':
-      return { ...state, cards: [...state.cards, { ...action.newCard, id: shortid(), columnId: action.columnId }] };
+      return { ...state, cards: [...state.cards, action.newCard]};
     default:
       return state;
   }
