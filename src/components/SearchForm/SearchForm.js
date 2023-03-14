@@ -12,7 +12,7 @@ const SearchForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(searchUpdate({searchString}));
+    dispatch(searchUpdate( searchString ));
     setSearchString('');
   };
   return (
