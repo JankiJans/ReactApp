@@ -1,5 +1,7 @@
+@import '../../styles/settings.scss';
+
 nav{
-    background-color:#6c5ce7;
+  background-color:#6c5ce7;
     
 }
 
@@ -14,7 +16,7 @@ nav{
 }
 
 .navIcon {
-  font-size: 35px;
+  font-size: 40px;
   a {
     color: #fff;
   }
@@ -23,10 +25,13 @@ nav{
 .navList ul li {
     list-style-type: none;
   a {
-    color: #fff;
     text-decoration: none;
     font-size: 18px;
     padding: 0 10px;
     font-weight: 800;
   }
+}
+
+.linkActive {
+  color: $color-success;
 }
