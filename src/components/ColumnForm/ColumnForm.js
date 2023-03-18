@@ -15,7 +15,7 @@ const ColumnForm = (props) => {
   const handleSubmit = (e) => {
     // tworzy funkcję, która będzie wywoływana po kliknięciu w przycisk
     e.preventDefault(); // zapobiega przeładowaniu strony po kliknięciu w przycisk
-    dispatch(addColumn({ id: shortid(), title, icon })); // wywołuje akcję ADD_COLUMN i przekazuje do niej obiekt z tytułem i ikoną
+    dispatch(addColumn({ id: shortid(), title, icon, listId: props.listId })); // wywołuje akcję ADD_COLUMN i przekazuje do niej obiekt z tytułem i ikoną
     setValue(''); // czyści pole input po dodaniu nowej kolumny
     setIcon('');
   };
