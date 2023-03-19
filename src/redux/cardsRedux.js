@@ -5,13 +5,14 @@ export const getFilteredCards = ({ cards, searchString }, columnId) => cards.fil
 export const getIsFavoriteCards = ({ cards }) => cards.filter((card) => card.isFavorite === true);
 //actions 
 
-const createActionName = actionName => `app/cards/${actionName}`;
+const createActionName = actionName => `app/lists/${actionName}`;
 const ADD_CARD = createActionName('ADD_CARD');
 const TOGGLE_CARD_FAVORITE = createActionName('TOGGLE_CARD_FAVORITE');
 
 //action creators
-export const addCard = (newCard) => ({ type: 'ADD_CARD', newCard });
-export const toggleCardFavorite = (payload) => ({ type: 'TOGGLE_CARD_FAVORITE', payload });
+export const addCard = (newCard) => ({ type: ADD_CARD, newCard });
+export const toggleCardFavorite = (payload) => ({ type: TOGGLE_CARD_FAVORITE, payload });
+
 const cardsReducer = (statePart = [], action) => {
   switch (action.type) {
     case ADD_CARD:

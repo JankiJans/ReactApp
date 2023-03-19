@@ -7,7 +7,7 @@ const createActionName = actionName => `app/lists/${actionName}`;
 const ADD_LIST = createActionName('ADD_LIST');
 
 // action creators
-export const addList = (newList) => ({ type: 'ADD_LIST', newList });
+export const addList = (newList) => ({ type: ADD_LIST, newList });
 const listsReducer = (statePart = [], action) => {
   switch (action.type) {
     case ADD_LIST:

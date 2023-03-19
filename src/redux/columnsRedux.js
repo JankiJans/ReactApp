@@ -6,11 +6,11 @@ export const getFilteredCards = ({ cards, searchString }, columnId) => cards.fil
 
 
 // actions
-const createActionName = actionName => `app/columns/${actionName}`;
+const createActionName = actionName => `app/lists/${actionName}`;
 const ADD_COLUMN = createActionName('ADD_COLUMN');
 
 //action creators
-export const addColumn = (newColumn) => ({ type: 'ADD_COLUMN', newColumn });
+export const addColumn = (newColumn) => ({ type: ADD_COLUMN, newColumn });
 const columnsReducer = (statePart = [], action) => {
   switch (action.type) {
     case ADD_COLUMN:
