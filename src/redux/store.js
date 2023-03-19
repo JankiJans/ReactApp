@@ -30,21 +30,53 @@ export const addList = (newList) => ({ type: 'ADD_LIST', newList });
 export const toggleCardFavorite = (payload) => ({ type: 'TOGGLE_CARD_FAVORITE', payload });
 
 const reducer = (state, action) => {
-  switch (action.type) {
-    case 'ADD_COLUMN':
-      return { ...state, columns: [...state.columns, action.newColumn] };
-    case 'ADD_CARD':
-      return { ...state, cards: [...state.cards, action.newCard] };
-    case 'SEARCH_UPDATE':
-      return { ...state, searchString: action.updateSearchString };
-    case 'ADD_LIST':
-      return { ...state, lists: [...state.lists, action.newList] };
-    case 'TOGGLE_CARD_FAVORITE':
-      return { ...state, cards: state.cards.map((card) => (card.id === action.payload ? { ...card, isFavorite: !card.isFavorite } : card)) };
-    default:
-      return state;
-  }
+  const newState = {
+    lists: listsReducer(state.lists, action),
+    columns: columnsReducer(state.columns, action),
+    cards: cardsReducer(state.cards, action),
+    searchString: searchStringReducer(state.searchString, action)
+  };
+
+  return newState;
 };
+
+const listsReducer = (statePart = [], action) => {
+  switch(action.type) {
+    case 'ADD_LIST':
+      return [...statePart, { ...action.newList }];
+    default:
+      return statePart;
+  }
+}
+
+const columnsReducer = (statePart = [], action) => {
+  switch(action.type) {
+    case 'ADD_COLUMN':
+      return [...statePart, { ...action.newColumn }];
+    default:
+      return statePart;
+  }
+}
+
+const cardsReducer = (statePart = [], action) => {
+  switch(action.type) {
+    case 'ADD_CARD':
+      return [...statePart, { ...action.newCard }];
+    case 'TOGGLE_CARD_FAVORITE':
+      return statePart.map(card => (card.id === action.payload) ? { ...card, isFavorite: !card.isFavorite } : card);
+    default:
+      return statePart;
+  }
+}
+
+const searchStringReducer = (statePart = '', action) => {
+  switch(action.type) {
+    case 'SEARCH_UPDATE':
+      return action.updateSearchString
+    default:
+      return statePart;
+  }
+}
 
 const store = createStore(reducer, initialState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
