@@ -22,3 +22,14 @@
     justify-content: space-between;
     font-weight: bold;
 }
+.noFavorite {
+  text-align: center;
+  font-size: 20px;
+  a{
+    padding-left: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    color: $color-warning;
+    font-size: 20px;
+  }
+}

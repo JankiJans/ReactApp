@@ -10,11 +10,15 @@ const Favorite = () => {
     <div className={styles.favoritePage}>
       <PageTitle>Favorite</PageTitle>
       <div className={styles.column}>
-        <ul className={styles.cards}>
-             {favoriteCards.map((card) => (
-          <Card key={card.id} title={card.title} id={card.id} isFavorite={card.isFavorite} />
-        ))} 
-        </ul>
+        {favoriteCards.length > 0 ? (
+          <ul className={styles.cards}>
+            {favoriteCards.map((card) => (
+              <Card key={card.id} title={card.title} id={card.id} isFavorite={card.isFavorite} />
+            ))}
+          </ul>
+        ) : (
+          <p className={styles.noFavorite}>No liked cards<a href="/" className="fa fa-frown-o"></a></p>
+        )}
       </div>
     </div>
   );
