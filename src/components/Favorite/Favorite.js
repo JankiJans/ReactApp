@@ -12,8 +12,8 @@ const Favorite = () => {
       <div className={styles.column}>
         {favoriteCards.length > 0 ? (
           <ul className={styles.cards}>
-            {favoriteCards.map((card) => (
-              <Card key={card.id} title={card.title} id={card.id} isFavorite={card.isFavorite} />
+            {favoriteCards.map((card) => (          
+              <Card key={card.id} title={card.title} id={card.id} isFavorite={card.isFavorite} />         
             ))}
           </ul>
         ) : (
